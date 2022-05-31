@@ -1,3 +1,9 @@
+import MainLayout from "../layouts/MainLayout";
+
 export default function Blog() {
-  return <div>Blog page</div>;
+  return (
+    <MainLayout>
+      <div>Blog page</div>
+    </MainLayout>
+  );
 }
