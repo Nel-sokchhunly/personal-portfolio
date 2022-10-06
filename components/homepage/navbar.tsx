@@ -6,10 +6,10 @@ const Title = ({ text, className }: { text: String; className?: String }) => (
 
 function Navbar() {
   return (
-    <div className="h-16 w-full flex justify-evenly bg-primary items-center border-t-2 border-secondary sticky bottom-0 right-0">
+    <div className="sticky bottom-0 left-0 h-16 w-full flex justify-evenly bg-primary items-center border-t-2 border-secondary">
       <Title text="Nel Sokchhunly" />
-      <div className="border-l-2 border-secondary h-full hidden sm:block" />
-      <Title text="Personal portfolio " className="hidden sm:block" />
+      <div className="border-l-2 border-secondary h-full hidden md:block" />
+      <Title text="Personal portfolio " className="hidden md:block" />
     </div>
   );
 }
