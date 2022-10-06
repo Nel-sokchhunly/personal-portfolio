@@ -1,6 +1,5 @@
 import MainLayout from "../layouts/MainLayout";
 import Image from "next/image";
-import CreditSection from "../components/credit_section";
 
 const profileImg =
   "https://drive.google.com/file/d/13OfRq4oZVPO83itnK-K7tQd7YZOyAXhZ/view?usp=sharing";
@@ -8,7 +7,7 @@ const profileImg =
 export default function About() {
   return (
     <MainLayout>
-      <div className="p-4 flex flex-col sm:flex-row sm:space-x-4 space-y-4 sm:space-y-0">
+      <div className="flex flex-col sm:flex-row sm:space-x-4 space-y-4 sm:space-y-0">
         <div className=" flex justify-center sm:justify-start">
           <div className="h-72 w-52 xl:w-56 border-2 border-secondary flex flex-col hover:shadow-sm hover:shadow-secondary transition duration-200">
             <div className="relative flex-1 w-full flex items-center justify-center bg-opacity-30 font-medium whitespace-pre-wrap">

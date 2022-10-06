@@ -17,9 +17,9 @@ function MainButton({ title, color, page }: MainButtonProps) {
       <Link href={"/" + page}>
         <button
           typeof="button"
-          className={`text-center border-t-2 border-black py-4 cursor-pointer ${color} bg-opacity-50 hover:bg-primary focus:bg-primary  `}
+          className={`flex justify-center border-t-2 border-black py-4 cursor-pointer ${color} bg-opacity-50 hover:bg-primary focus:bg-primary  `}
         >
-          {"-"}
+          <img src="assets/enter.png" alt="enter button" className='h-6' />
         </button>
       </Link>
     </div>

@@ -1,9 +1,9 @@
 import MainLayout from "../layouts/MainLayout";
 
-export default function Blog() {
+export default function Experience() {
   return (
     <MainLayout>
-      <div>Blog page</div>
+      <div>experience page</div>
     </MainLayout>
   );
 }
