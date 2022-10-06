@@ -1,6 +1,9 @@
 import MainLayout from '../layouts/MainLayout';
 import Image from 'next/image';
 
+const resumeLink =
+  'https://drive.google.com/file/d/1mvz3lnh6SZf0tpLCjk__tBHk36HlH8kC/view?usp=sharing';
+
 export default function About() {
   return (
     <MainLayout>
@@ -39,7 +42,7 @@ export default function About() {
           </p>
 
           <div className='w-full flex flex-col space-y-4 mt-4'>
-            <a href="public\assets\Nel Sokchhunly's resume.pdf" download>
+            <a href={resumeLink}>
               <div className='flex items-start space-x-2'>
                 <Image
                   src='/assets/cv.png'
@@ -47,7 +50,7 @@ export default function About() {
                   width='24'
                   height='24'
                 />
-                <span>Download my resume</span>
+                <span>View my resume</span>
               </div>
             </a>
             <a href='mailto:sokchhunlynel@example.com'>
