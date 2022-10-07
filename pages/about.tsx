@@ -7,7 +7,7 @@ const resumeLink =
 export default function About() {
   return (
     <MainLayout>
-      <div className='h-full flex flex-col sm:flex-row sm:space-x-4 space-y-4 sm:space-y-0'>
+      <div className='h-full flex flex-col sm:flex-row sm:space-x-4 space-y-4 sm:space-y-0 px-4 py-10 '>
         <div className='flex justify-center sm:justify-start'>
           <div className='h-72 w-52 xl:w-56 border-2 border-secondary flex flex-col hover:shadow-sm hover:shadow-secondary transition duration-200'>
             <div className='relative flex-1 w-full flex items-center justify-center bg-opacity-30 font-medium whitespace-pre-wrap'>
@@ -85,7 +85,7 @@ export default function About() {
               </div>
             </a>
             <a href='https://www.linkedin.com/in/sokchhunly-nel-2926341b9/'>
-              <div className='flex items-start space-x-2'>
+              <div className='flex items-start space-x-2 mb-10'>
                 <Image
                   src='/assets/linkedin.png'
                   alt='linkedin'
