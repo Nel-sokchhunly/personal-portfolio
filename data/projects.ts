@@ -24,10 +24,10 @@ export const projects: projectsType[] = [
   },
   {
     poster:
-      'https://firebasestorage.googleapis.com/v0/b/personal-portfolio-7cbca.appspot.com/o/odoo%20image.png?alt=media&token=f5a4b7b3-c8d2-461b-9818-d7fd3c315b34',
+      'https://firebasestorage.googleapis.com/v0/b/personal-portfolio-7cbca.appspot.com/o/odoo%20image.png?alt=media&token=19aaeadf-7400-4121-b441-7959b0625c2d',
     title: 'Odoo application',
     description:
-      'Participate in building an odoo enterprise application for A2A internal use that is more that 500 users. The project was a huge success.',
+      'Participate in building an odoo enterprise application for internal use that is more that 500 users.',
     technologies: ['Odoo', 'Python', 'XML', 'Postgres']
   }
 ];
