@@ -103,7 +103,8 @@ export default function Project({
 
 export async function getServerSideProps({ params }: { params: any }) {
   const projectJsonLink = process.env.PROJECT_JSON_URL;
-  const projectsJson = require('../../data/projects.json');
+  // const projectsJson = require('../../data/projects.json');
+  const projectsJson = await fetch(projectJsonLink).then((res) => res.json());
 
   const project = projectsJson['projects'].find(
     (project: projectsType) => project.id === params.id

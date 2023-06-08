@@ -5,7 +5,6 @@ import Image from 'next/image';
 import Link from 'next/link';
 
 const projectJsonLink = process.env.PROJECT_JSON_URL;
-const projectsJson = require('../../data/projects.json');
 
 export default function Project({ projects }: { projects: projectsType[] }) {
   return (
@@ -22,8 +21,8 @@ export default function Project({ projects }: { projects: projectsType[] }) {
 }
 
 export async function getServerSideProps() {
-  // const res = await fetch(projectJsonLink);
-  // const projectsJson = await res.json();
+  const res = await fetch(projectJsonLink);
+  const projectsJson = await res.json();
 
   return {
     props: {
