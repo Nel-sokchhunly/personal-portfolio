@@ -4,20 +4,30 @@
     "dev": "next",
     "build": "next build",
     "start": "next start",
-    "type-check": "tsc"
+    "type-check": "tsc",
+    "slicemachine": "start-slicemachine"
   },
   "dependencies": {
+    "@prismicio/client": "^7.1.0",
+    "@prismicio/next": "^1.2.1",
+    "@prismicio/react": "^2.6.2",
+    "eslint-config-next": "^13.4.4",
     "framer-motion": "^7.5.3",
-    "next": "12.3.1",
+    "keen-slider": "^6.8.5",
+    "next": "^13.4.4",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "recoil": "^0.7.7",
+    "tabletop": "^1.6.3"
   },
   "devDependencies": {
+    "@slicemachine/adapter-next": "^0.3.0",
     "@types/node": "^18.8.2",
     "@types/react": "^18.0.21",
     "@types/react-dom": "^18.0.6",
     "autoprefixer": "^10.4.12",
     "postcss": "^8.4.17",
+    "slice-machine-ui": "^1.2.0",
     "tailwindcss": "^3.1.8",
     "typescript": "4.8.4"
   }

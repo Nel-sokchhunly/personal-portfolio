@@ -1,8 +1,7 @@
 import MainLayout from '../layouts/MainLayout';
 import Image from 'next/image';
 
-const resumeLink =
-  'https://drive.google.com/file/d/1mvz3lnh6SZf0tpLCjk__tBHk36HlH8kC/view?usp=sharing';
+const resumeLink = process.env.RESUME_URL;
 
 export default function About() {
   return (
