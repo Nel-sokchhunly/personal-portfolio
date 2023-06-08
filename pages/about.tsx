@@ -12,6 +12,7 @@ export default function About() {
             <div className='relative flex-1 w-full flex items-center justify-center bg-opacity-30 font-medium whitespace-pre-wrap'>
               <Image
                 src='/assets/profile.jpg'
+                alt='profile'
                 layout='fill'
                 objectFit='cover'
               />
