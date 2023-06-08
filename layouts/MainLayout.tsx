@@ -10,7 +10,7 @@ export default function MainLayout({ backUrl, children }: BackNavbarProps) {
     <div className='overflow-hidden h-screen bg-primary flex flex-col relative'>
       <div className='h-full flex-grow overflow-y-scroll'>{children}</div>
       <Link href={backUrl ? backUrl : '/'}>
-        <div className='bg-primary cursor-pointer h-16 flex justify-center items-center border-t-2 border-secondary px-4 sticky bottom-0 right-0'>
+        <div className='bg-primary cursor-pointer h-16 flex justify-center items-center border-t-2 border-secondary px-4 fixed bottom-0 right-0'>
           <div className='font-semibold text-lg text-secondary'>Back</div>
         </div>
       </Link>
