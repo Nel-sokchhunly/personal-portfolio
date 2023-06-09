@@ -4,6 +4,8 @@ import MainLayout from '../../layouts/MainLayout';
 import 'keen-slider/keen-slider.min.css';
 import { useKeenSlider } from 'keen-slider/react';
 
+import { projects } from '../../data/projects';
+
 export default function Project({
   project,
   accentColor
@@ -29,7 +31,7 @@ export default function Project({
             <img
               src={project.poster}
               alt={project.title}
-              className='h-full w-full object-center'
+              className='h-full w-full object-cover'
             />
           </div>
 
@@ -38,7 +40,7 @@ export default function Project({
               {project.title}
             </h1>
 
-            <p>{project.description}</p>
+            <p className='whitespace-pre-line'>{project.description}</p>
           </div>
         </div>
 
@@ -85,7 +87,7 @@ export default function Project({
 
             <div className='my-4 hidden md:flex flex-row flex-wrap w-full items-center justify-start gap-4'>
               {project.images.map((image, index) => (
-                <div key={index} className='max-w-[300px]'>
+                <div key={index} className='max-w-[300px] ring-1'>
                   <img
                     src={image}
                     alt={project.title}
@@ -102,16 +104,11 @@ export default function Project({
 }
 
 export async function getServerSideProps({ params }: { params: any }) {
-  const projectJsonLink = process.env.PROJECT_JSON_URL;
-  // const projectsJson = require('../../data/projects.json');
-  const res = await fetch(projectJsonLink);
-  const projectsJson = await res.json()
-
-  const project = projectsJson['projects'].find(
+  const project = projects.find(
     (project: projectsType) => project.id === params.id
   );
 
-  const index = projectsJson['projects'].findIndex((object: projectsType) => {
+  const index = projects.findIndex((object: projectsType) => {
     return object.id === project.id;
   });
 

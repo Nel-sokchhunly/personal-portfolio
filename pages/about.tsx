@@ -42,7 +42,11 @@ export default function About() {
           </p>
 
           <div className='w-full flex flex-col space-y-4 mt-4'>
-            <a href={resumeLink}>
+            <a
+              href='https://drive.google.com/file/d/1XU4Ms1qe-N8eXH2_i4SFyDFdiF6Z1hWc/view?usp=sharing'
+              target='_blank'
+              className='cursor-pointer'
+            >
               <div className='flex items-start space-x-2'>
                 <Image
                   src='/assets/cv.png'
