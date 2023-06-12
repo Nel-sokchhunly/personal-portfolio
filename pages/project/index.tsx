@@ -8,10 +8,10 @@ import { projects } from '../../data/projects';
 export default function Project() {
   return (
     <MainLayout>
-      <div className='w-full min-h-full flex justify-center items-center mb-36 md:mb-0'>
-        <div className='flex flex-wrap gap-10 justify-center items-center mt-10 md:mt-0'>
+      <div className='w-full min-h-full flex justify-center items-center mb-36 md:mb-16'>
+        <div className='flex flex-wrap gap-10 justify-center items-center pt-10'>
           {projects.map((project: projectsType, index: number) => (
-            <ProjectBtn key={index} project={project} index={index} />
+            <ProjectBtn project={project} index={index} />
           ))}
         </div>
       </div>
@@ -34,20 +34,27 @@ const ProjectBtn = ({
       : 'bg-accent3';
 
   return (
-    <Link href={'/project/' + project.id}>
+    <Link key={index} href={'/project/' + project.id}>
       <div
         className='
-            cursor-pointer items-stretch h-72 w-72 md:w-96 border-2 border-secondary flex flex-col
-            hover:shadow-md hover:shadow-secondary transition duration-200
-          '
+        cursor-pointer items-stretch h-fit w-72 md:w-80 xl:w-96 border-2 border-secondary flex flex-col
+        hover:shadow-md hover:shadow-secondary transition duration-200
+        box-content
+      '
       >
         <div
-          className={`relative flex-1 h-52 flex items-center justify-center bg-opacity-30 font-medium aspect-video`}
+          className={`
+            relative 
+            h-52 w-72 md:w-80 xl:w-96 
+            flex items-center justify-center flex-1 
+            bg-opacity-30 font-medium aspect-video 
+            
+          `}
         >
           <Image
             src={project.poster}
             alt={project.title}
-            className='h-full w-full object-cover aspect-video'
+            className='object-center object-cover h-full w-full'
             fill
           />
         </div>
@@ -59,9 +66,6 @@ const ProjectBtn = ({
           `}
         >
           {project.title}
-          <span className='relative'>
-            <Image src='/assets/enter.png' alt='enter button' fill />
-          </span>
         </button>
       </div>
     </Link>

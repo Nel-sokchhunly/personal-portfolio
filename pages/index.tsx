@@ -6,7 +6,7 @@ function Homepage() {
     <div className='h-screen w-full overflow-hidden bg-primary flex flex-col relative'>
       <div
         className='
-          mb-32 md:mb-0 
+          mb-32 md:mb-16
           gap-4 md:space-y-0 
           min-h-full w-full 
           flex-1 flex flex-col flex-grow md:flex-row justify-evenly items-center

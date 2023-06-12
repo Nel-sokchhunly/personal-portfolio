@@ -1,3 +1,5 @@
+import Image from 'next/image';
+
 import { projectsType } from '../../data/projects';
 import MainLayout from '../../layouts/MainLayout';
 
@@ -5,6 +7,7 @@ import 'keen-slider/keen-slider.min.css';
 import { useKeenSlider } from 'keen-slider/react';
 
 import { projects } from '../../data/projects';
+import useViewImage from '../../components/modal/ViewImage';
 
 export default function Project({
   project,
@@ -21,85 +24,101 @@ export default function Project({
     }
   });
 
+  const { toggle, ViewImageModal, setInitialSlide } = useViewImage({
+    imageList: project.images
+  });
+
   return (
-    <MainLayout backUrl='/project'>
-      <div className='w-full min-h-full p-4 mb-32 md:mb-0'>
-        <div className='grid grid-cols-1 md:grid-cols-3'>
-          <div
-            className={`h-fit max-w-[500px] flex items-center justify-center bg-opacity-30 font-medium aspect-video my-4`}
-          >
-            <img
-              src={project.poster}
-              alt={project.title}
-              className='h-full w-full object-cover'
-            />
+    <>
+      <ViewImageModal />
+
+      <MainLayout backUrl='/project'>
+        <div className='w-full min-h-full p-4 mb-32 md:mb-16'>
+          <div className='grid grid-cols-1 md:grid-cols-3'>
+            <div
+              className={`h-fit max-w-[500px] flex items-center justify-center bg-opacity-30 font-medium relative aspect-video my-4`}
+            >
+              <Image
+                src={project.poster}
+                alt={project.title}
+                className='h-full w-full object-cover'
+                fill
+              />
+            </div>
+
+            <div className='col-span-2 md:px-4'>
+              <h1 className='font-bold text-xl text-black text-opacity-90 my-4'>
+                {project.title}
+              </h1>
+
+              <p className='whitespace-pre-line'>{project.description}</p>
+            </div>
           </div>
 
-          <div className='col-span-2 md:px-4'>
-            <h1 className='font-bold text-xl text-black text-opacity-90 my-4'>
-              {project.title}
-            </h1>
+          {/* technologies */}
+          <div className='mt-8 flex flex-wrap gap-4 items-center'>
+            <h3 className='font-bold text-lg'>Technologies : </h3>
+            <div className='flex flex-wrap gap-2'>
+              {project.technologies.map((tech, index) => {
+                const color =
+                  index % 3 === 0
+                    ? 'bg-accent1'
+                    : index % 3 === 1
+                    ? 'bg-accent2'
+                    : 'bg-accent3';
 
-            <p className='whitespace-pre-line'>{project.description}</p>
+                return (
+                  <span className={`p-2 px-4 ${color} rounded-full text-white`}>
+                    {tech}
+                  </span>
+                );
+              })}
+            </div>
           </div>
-        </div>
 
-        {/* technologies */}
-        <div className='mt-8 flex flex-wrap gap-4 items-center'>
-          <h3 className='font-bold text-lg'>Technologies : </h3>
-          <div className='flex flex-wrap gap-2'>
-            {project.technologies.map((tech, index) => {
-              const color =
-                index % 3 === 0
-                  ? 'bg-accent1'
-                  : index % 3 === 1
-                  ? 'bg-accent2'
-                  : 'bg-accent3';
+          {/* project screenshots */}
+          {project.images && project.images.length > 0 && (
+            <div>
+              <h3 className='mt-8 font-bold text-lg'>Project Screenshots : </h3>
 
-              return (
-                <span className={`p-2 px-4 ${color} rounded-full text-white`}>
-                  {tech}
-                </span>
-              );
-            })}
-          </div>
-        </div>
+              {/* images slider for mobile */}
+              <div className='my-4 md:hidden max-w-full mx-auto '>
+                <div ref={sliderRef} className='keen-slider'>
+                  {project.images.map((image, index) => (
+                    <div key={index} className='keen-slider__slide'>
+                      <img
+                        src={image}
+                        alt={project.title}
+                        className='h-full w-full full object-scale-down aspect-auto'
+                      />
+                    </div>
+                  ))}
+                </div>
+              </div>
 
-        {/* project screenshots */}
-        {project.images && project.images.length > 0 && (
-          <div>
-            <h3 className='mt-8 font-bold text-lg'>Project Screenshots : </h3>
-
-            {/* images slider for mobile */}
-            <div className='my-4 md:hidden max-w-full mx-auto '>
-              <div ref={sliderRef} className='keen-slider'>
+              <div className='my-4 hidden md:flex flex-row flex-wrap w-full items-center justify-center gap-4'>
                 {project.images.map((image, index) => (
-                  <div key={index} className='keen-slider__slide'>
+                  <div
+                    key={index}
+                    className='w-1/3 lg:w-1/5 max-h-full ring-1 object-cover aspect-auto relative cursor-pointer'
+                    onClick={() => {
+                      setInitialSlide(index);
+                      toggle();
+                    }}
+                  >
                     <img
                       src={image}
                       alt={project.title}
-                      className='h-full w-full full object-scale-down'
+                      className='object-center object-cover'
                     />
                   </div>
                 ))}
               </div>
             </div>
-
-            <div className='my-4 hidden md:flex flex-row flex-wrap w-full items-center justify-start gap-4'>
-              {project.images.map((image, index) => (
-                <div key={index} className='max-w-[300px] ring-1'>
-                  <img
-                    src={image}
-                    alt={project.title}
-                    className='h-fit w-full full object-fill'
-                  />
-                </div>
-              ))}
-            </div>
-          </div>
-        )}
-      </div>
-    </MainLayout>
+          )}
+        </div>
+      </MainLayout>
+    </>
   );
 }
 
