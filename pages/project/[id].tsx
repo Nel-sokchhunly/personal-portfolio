@@ -23,7 +23,7 @@ export default function Project({
 
   return (
     <MainLayout backUrl='/project'>
-      <div className='w-full min-h-full p-4'>
+      <div className='w-full min-h-full p-4 mb-32 md:mb-0'>
         <div className='grid grid-cols-1 md:grid-cols-3'>
           <div
             className={`h-fit max-w-[500px] flex items-center justify-center bg-opacity-30 font-medium aspect-video my-4`}
