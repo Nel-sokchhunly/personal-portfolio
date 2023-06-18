@@ -31,15 +31,18 @@ export default function Project({ project }: { project: projectsType }) {
       <MainLayout backUrl='/project'>
         <div className='w-full min-h-full p-4 mb-32 md:mb-16'>
           <div className='grid grid-cols-1 md:grid-cols-3'>
-            <div
-              className={`h-fit max-w-[500px] flex items-center justify-center bg-opacity-30 font-medium relative aspect-video my-4`}
-            >
-              <Image
-                src={project.poster}
-                alt={project.title}
-                className='h-full w-full object-cover'
-                fill
-              />
+            <div className=''>
+              <div
+                className={`mx-auto max-h-[400px] max-w-[400px] relative aspect-video my-4`}
+              >
+                <Image
+                  src={project.poster}
+                  alt={project.title}
+                  className='object-scale-down'
+                  fill
+                  priority
+                />
+              </div>
             </div>
 
             <div className='col-span-2 md:px-4'>
@@ -104,6 +107,14 @@ export default function Project({ project }: { project: projectsType }) {
                         className='
                          w-auto h-auto object-left-top object-scale-down aspect-auto 
                         '
+                        style={{
+                          maxWidth: 'fit-content',
+                          maxHeight: 'fit-content',
+                          height: '100%',
+                          width: '100%'
+                        }}
+                        quality={75}
+                        sizes='400px'
                       />
                     </div>
                   ))}
@@ -127,12 +138,13 @@ export default function Project({ project }: { project: projectsType }) {
                       width={400}
                       height={450}
                       className='
-                      max-w-[400px] max-h-[450px] w-auto h-auto 
-                      object-scale-down aspect-auto 
-                      transition duration-300 ease-in-out 
-                      hover:ring-1 ring-accent3 
-                      hover:shadow-xl
+                        max-w-[400px] max-h-[450px] w-auto h-auto 
+                        object-scale-down aspect-auto 
+                        transition duration-300 ease-in-out 
+                        hover:ring-1 ring-accent3 
+                        hover:shadow-xl
                       '
+                      quality={75}
                     />
                   </div>
                 ))}

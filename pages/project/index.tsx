@@ -11,7 +11,7 @@ export default function Project() {
       <div className='w-full min-h-full flex justify-center items-center mb-36 md:mb-16'>
         <div className='flex flex-wrap gap-10 justify-center items-center pt-10'>
           {projects.map((project: projectsType, index: number) => (
-            <ProjectBtn project={project} index={index} />
+            <ProjectBtn key={index} project={project} index={index} />
           ))}
         </div>
       </div>
@@ -56,6 +56,9 @@ const ProjectBtn = ({
             alt={project.title}
             className='object-center object-cover h-full w-full'
             fill
+            priority
+            quality={100}
+            sizes='(max-width: 768px) 13rem, (max-width: 1024px) 20rem, 24rem'
           />
         </div>
         <button
