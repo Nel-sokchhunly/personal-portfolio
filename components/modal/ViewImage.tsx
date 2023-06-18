@@ -1,5 +1,7 @@
 import { useRef, useState, useEffect } from 'react';
 
+import Image from 'next/image';
+
 import { motion, AnimatePresence } from 'framer-motion';
 import { useKeenSlider } from 'keen-slider/react';
 
@@ -22,9 +24,6 @@ export default function useViewImage({ imageList }: { imageList: string[] }) {
       },
       slideChanged(slider) {
         setCurrentSlide(slider.track.details.rel);
-        console.log('====================================');
-        console.log(slider.track.details.rel);
-        console.log('====================================');
       },
       created() {
         setCurrentSlide(initialSlide);
@@ -48,6 +47,9 @@ export default function useViewImage({ imageList }: { imageList: string[] }) {
       };
     }, [ref]);
 
+    const isLastSlide = () =>
+      currentSlide === instanceRef.current.track.details.slides.length - 1;
+
     return isShowing ? (
       <motion.div
         key={'view-image'}
@@ -61,61 +63,94 @@ export default function useViewImage({ imageList }: { imageList: string[] }) {
         }}
         className='
           w-screen h-screen overflow-hidden 
-          bg-transparent z-[999999]
-          absolute top-0 left-0
+          bg-black bg-opacity-20 z-[999999]
+          fixed top-0 left-0
           flex justify-center items-center
-          bg-black bg-opacity-20 filter backdrop-blur-sm
-          p-24 py-4 xl:py-8 cursor-pointer
+          filter backdrop-blur-sm
+          cursor-pointer
         '
       >
         <div
-          className='bg-white rounded-xl p-4 w-full h-full relative cursor-default overflow-clip'
+          className='py-4 px-4 w-fit h-full relative cursor-default overflow-clip flex flex-col flex-grow '
           ref={ref}
         >
-          <div ref={sliderRef} className='keen-slider w-full h-full p-4'>
+          <div ref={sliderRef} className='keen-slider flex-1 w-fit '>
             {imageList.map((image, index) => (
-              <div key={index} className='keen-slider__slide w-full'>
-                <img
+              <div
+                key={index}
+                className='keen-slider__slide w-fit h-full relative'
+              >
+                <Image
                   src={image}
-                  className='h-full w-full full object-scale-down aspect-auto'
+                  alt='project image'
+                  fill
+                  className='h-full w-full object-scale-down aspect-auto'
                 />
               </div>
             ))}
           </div>
 
-          {loaded && (
-            <>
-              {currentSlide !== 0 && (
+          <div className=' flex justify-center items-center gap-4 mt-8 mb-4'>
+            {loaded && (
+              <>
                 <button
-                  className='
-                    absolute left-4 top-0 h-full flex justify-center items-center
-                    hover:bg-gradient-to-r hover:from-slate-200 hover:to-transparent
-                    -mx-4 px-4
-                  '
                   onClick={(e: any) =>
                     e.stopPropagation() || instanceRef.current?.prev()
                   }
+                  className={[
+                    `
+                      rounded-full
+                      transform transition-all duration-200
+                    `,
+                    currentSlide !== 0 && 'hover:scale-110'
+                  ].join(' ')}
+                  disabled={currentSlide === 0}
                 >
-                  <img className='h-8 w-8 rotate-90' src='/assets/arrow.png' />
+                  <img
+                    className={`h-12 w-12 ${
+                      currentSlide === 0 && 'opacity-40'
+                    }`}
+                    src='/assets/arrow.png'
+                  />
                 </button>
-              )}
-              {currentSlide !==
-                instanceRef.current.track.details.slides.length - 1 && (
+
                 <button
+                  onClick={toggle}
                   className='
-                    absolute right-4 top-0 h-full flex justify-center items-center
-                    hover:bg-gradient-to-l hover:from-slate-200 hover:to-transparent
-                    -mx-4 px-4
+                     p-2 px-8  text-xl font-bold text-white bg-black bg-opacity-20 rounded-full
+                    hover:bg-opacity-50 hover:px-20 hover:bg-accent3
+                    border-2 border-black border-opacity-0 hover:border-opacity-20
+                    transform transition-all duration-200
                   '
-                  onClick={(e: any) =>
-                    e.stopPropagation() || instanceRef.current?.next()
-                  }
                 >
-                  <img className='h-8 w-8 -rotate-90' src='/assets/arrow.png' />
+                  Close
                 </button>
-              )}
-            </>
-          )}
+
+                {!isLastSlide() && (
+                  <button
+                    onClick={(e: any) =>
+                      e.stopPropagation() || instanceRef.current?.next()
+                    }
+                    className={[
+                      `
+                      rounded-full
+                      transform transition-all duration-200
+                    `,
+                      !isLastSlide() && 'hover:scale-110'
+                    ].join(' ')}
+                    disabled={isLastSlide()}
+                  >
+                    <img
+                      className={`h-12 w-12 rotate-180 ${
+                        isLastSlide() && 'opacity-40'
+                      }`}
+                      src='/assets/arrow.png'
+                    />
+                  </button>
+                )}
+              </>
+            )}
+          </div>
         </div>
       </motion.div>
     ) : (

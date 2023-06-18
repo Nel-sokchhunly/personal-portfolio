@@ -3,23 +3,19 @@ import Image from 'next/image';
 import { projectsType } from '../../data/projects';
 import MainLayout from '../../layouts/MainLayout';
 
+import { motion } from 'framer-motion';
+
 import 'keen-slider/keen-slider.min.css';
 import { useKeenSlider } from 'keen-slider/react';
 
 import { projects } from '../../data/projects';
 import useViewImage from '../../components/modal/ViewImage';
 
-export default function Project({
-  project,
-  accentColor
-}: {
-  project: projectsType;
-  accentColor: string;
-}) {
+export default function Project({ project }: { project: projectsType }) {
   const [sliderRef, instanceRef] = useKeenSlider({
     slides: {
       origin: 'center',
-      perView: 2,
+      perView: 'auto',
       spacing: 15
     }
   });
@@ -79,37 +75,64 @@ export default function Project({
           {/* project screenshots */}
           {project.images && project.images.length > 0 && (
             <div>
-              <h3 className='mt-8 font-bold text-lg'>Project Screenshots : </h3>
+              <div>
+                <h3 className='mt-8 font-bold text-lg'>
+                  Project Screenshots :{' '}
+                </h3>
+                <span className='text-black text-opacity-50 text-xs font-medium'>
+                  (click to view bigger image)
+                </span>
+              </div>
 
               {/* images slider for mobile */}
-              <div className='my-4 md:hidden max-w-full mx-auto '>
+              <div className='my-4 h-[400px] md:hidden mx-auto flex flex-grow'>
                 <div ref={sliderRef} className='keen-slider'>
                   {project.images.map((image, index) => (
-                    <div key={index} className='keen-slider__slide'>
-                      <img
+                    <div
+                      onClick={() => {
+                        setInitialSlide(index);
+                        toggle();
+                      }}
+                      key={index}
+                      className='keen-slider__slide w-full relative flex items-start'
+                      style={{ minWidth: '230px' }}
+                    >
+                      <Image
                         src={image}
                         alt={project.title}
-                        className='h-full w-full full object-scale-down aspect-auto'
+                        fill
+                        className='
+                         w-auto h-auto object-left-top object-scale-down aspect-auto 
+                        '
                       />
                     </div>
                   ))}
                 </div>
               </div>
 
+              {/* bigger screen */}
               <div className='my-4 hidden md:flex flex-row flex-wrap w-full items-center justify-center gap-4'>
                 {project.images.map((image, index) => (
                   <div
                     key={index}
-                    className='w-1/3 lg:w-1/5 max-h-full ring-1 object-cover aspect-auto relative cursor-pointer'
+                    className='max-w-[500px] max-h-[500px] relative cursor-pointer'
                     onClick={() => {
                       setInitialSlide(index);
                       toggle();
                     }}
                   >
-                    <img
+                    <Image
                       src={image}
                       alt={project.title}
-                      className='object-center object-cover'
+                      width={400}
+                      height={450}
+                      className='
+                      max-w-[400px] max-h-[450px] w-auto h-auto 
+                      object-scale-down aspect-auto 
+                      transition duration-300 ease-in-out 
+                      hover:ring-1 ring-accent3 
+                      hover:shadow-xl
+                      '
                     />
                   </div>
                 ))}
@@ -131,17 +154,9 @@ export async function getServerSideProps({ params }: { params: any }) {
     return object.id === project.id;
   });
 
-  const color =
-    index % 3 === 0
-      ? 'bg-accent1'
-      : index % 3 === 1
-      ? 'bg-accent2'
-      : 'bg-accent3';
-
   return {
     props: {
-      project: project,
-      accentColor: color
+      project: project
     }
   };
 }
