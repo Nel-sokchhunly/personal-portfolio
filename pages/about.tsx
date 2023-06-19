@@ -6,12 +6,12 @@ const resumeLink = process.env.RESUME_URL;
 export default function About() {
   return (
     <MainLayout>
-      <div className='h-full flex flex-col sm:flex-row sm:space-x-4 space-y-4 sm:space-y-0 px-4 py-10 '>
+      <div className='flex flex-col sm:flex-row sm:space-x-4 space-y-4 sm:space-y-0 px-5 md:px-10 py-10 '>
         <div className='flex justify-center sm:justify-start'>
           <div className='h-72 w-52 xl:w-56 border-2 border-secondary flex flex-col hover:shadow-sm hover:shadow-secondary transition duration-200'>
             <div className='relative flex-1 w-full flex items-center justify-center bg-opacity-30 font-medium whitespace-pre-wrap'>
               <Image
-                src='/assets/profile.jpg'
+                src='/assets/nel-sokchhunly.jpeg'
                 alt='profile'
                 layout='fill'
                 objectFit='cover'
@@ -41,13 +41,13 @@ export default function About() {
             <b>Figma</b>.
           </p>
 
-          <div className='w-full flex flex-col space-y-4 mt-4'>
+          <div className='w-full flex flex-col space-y-4 mt-4 mb-10'>
             <a
               href='https://drive.google.com/file/d/1XU4Ms1qe-N8eXH2_i4SFyDFdiF6Z1hWc/view?usp=sharing'
               target='_blank'
-              className='cursor-pointer'
+              className='cursor-pointer w-fit'
             >
-              <div className='flex items-start space-x-2'>
+              <div className='flex items-start space-x-2 '>
                 <Image
                   src='/assets/cv.png'
                   alt='resume'
@@ -55,9 +55,19 @@ export default function About() {
                   height='24'
                 />
                 <span>View my resume</span>
+                <Image
+                  src='/assets/open-link.png'
+                  alt='open-link'
+                  width='14'
+                  height='14'
+                />
               </div>
             </a>
-            <a href='mailto:sokchhunlynel@example.com'>
+            <a
+              href='mailto:sokchhunlynel@example.com'
+              target='_blank'
+              className='cursor-pointer w-fit'
+            >
               <div className='flex items-start space-x-2'>
                 <Image
                   src='/assets/envelope.png'
@@ -66,18 +76,19 @@ export default function About() {
                   height='24'
                 />
                 <span>sokchhunlynel@gmail.com</span>
+                <Image
+                  src='/assets/open-link.png'
+                  alt='open-link'
+                  width='14'
+                  height='14'
+                />
               </div>
             </a>
-            <div className='flex items-start space-x-2'>
-              <Image
-                src='/assets/phone.png'
-                alt='mail'
-                width='24'
-                height='24'
-              />
-              <span>+855 96 53 61 563</span>
-            </div>
-            <a href='https://github.com/Nel-sokchhunly'>
+            <a
+              href='https://github.com/Nel-sokchhunly'
+              target='_blank'
+              className='cursor-pointer w-fit'
+            >
               <div className='flex items-start space-x-2'>
                 <Image
                   src='/assets/github.png'
@@ -86,10 +97,20 @@ export default function About() {
                   height='24'
                 />
                 <span>Nel-sokchhunly</span>
+                <Image
+                  src='/assets/open-link.png'
+                  alt='open-link'
+                  width='14'
+                  height='14'
+                />
               </div>
             </a>
-            <a href='https://www.linkedin.com/in/sokchhunly-nel-2926341b9/'>
-              <div className='flex items-start space-x-2 mb-10'>
+            <a
+              href='https://www.linkedin.com/in/sokchhunly-nel-2926341b9/'
+              target='_blank'
+              className='cursor-pointer w-fit'
+            >
+              <div className='flex items-start space-x-2'>
                 <Image
                   src='/assets/linkedin.png'
                   alt='linkedin'
@@ -97,6 +118,33 @@ export default function About() {
                   height='24'
                 />
                 <span>Sokchhunly Nel</span>
+                <Image
+                  src='/assets/open-link.png'
+                  alt='open-link'
+                  width='14'
+                  height='14'
+                />
+              </div>
+            </a>
+            <a
+              href='tel:0965361563'
+              target='_blank'
+              className='cursor-pointer w-fit'
+            >
+              <div className='flex items-start space-x-2'>
+                <Image
+                  src='/assets/phone.png'
+                  alt='mail'
+                  width='24'
+                  height='24'
+                />
+                <span>+855 96 53 61 563</span>
+                <Image
+                  src='/assets/open-link.png'
+                  alt='open-link'
+                  width='14'
+                  height='14'
+                />
               </div>
             </a>
           </div>
