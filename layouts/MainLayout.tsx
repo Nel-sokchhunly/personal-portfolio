@@ -8,7 +8,7 @@ type BackNavbarProps = {
 export default function MainLayout({ backUrl, children }: BackNavbarProps) {
   return (
     <div className='overflow-hidden h-full flex flex-col flex-grow relative bg-primary'>
-      <div className='min-h-full flex-1 overflow-y-auto'>
+      <div className='min-h-full w-screen flex-1 overflow-y-auto'>
         {children}
         {/* compensate for bottom bar height */}
         <div className='h-16 w-full'></div>
