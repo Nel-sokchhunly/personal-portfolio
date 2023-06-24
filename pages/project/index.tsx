@@ -4,8 +4,19 @@ import Image from 'next/image';
 import Link from 'next/link';
 
 import { projects } from '../../data/projects';
+import { useEffect } from 'react';
+import { useRouter } from 'next/router';
 
 export default function Project() {
+  const router = useRouter();
+
+  // prefetch project pages
+  useEffect(() => {
+    projects.forEach((project) => {
+      router.prefetch('/project/' + project.id);
+    });
+  }, []);
+
   return (
     <MainLayout>
       <div className='w-full min-h-full flex justify-center items-center'>

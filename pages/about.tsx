@@ -126,27 +126,6 @@ export default function About() {
                 />
               </div>
             </a>
-            <a
-              href='tel:0965361563'
-              target='_blank'
-              className='cursor-pointer w-fit'
-            >
-              <div className='flex items-start space-x-2'>
-                <Image
-                  src='/assets/phone.png'
-                  alt='mail'
-                  width='24'
-                  height='24'
-                />
-                <span>+855 96 53 61 563</span>
-                <Image
-                  src='/assets/open-link.png'
-                  alt='open-link'
-                  width='14'
-                  height='14'
-                />
-              </div>
-            </a>
           </div>
         </div>
       </div>

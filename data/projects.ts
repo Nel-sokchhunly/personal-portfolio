@@ -1,10 +1,15 @@
+import { Technologies } from './constants';
+
 export interface projectsType {
   id: string;
   poster: string;
   images?: string[];
   title: string;
   description: string;
-  technologies: string[];
+  technologies: {
+    name: string;
+    logo: string;
+  }[];
 }
 
 export const projects: projectsType[] = [
@@ -15,7 +20,12 @@ export const projects: projectsType[] = [
     title: 'Chat message web',
     description:
       "This is a chat massage web application that I've built using VueJS, Pinia and Pocketbase as a backend service.\n I build this application to learn more about how the chat message web application works and how to build it from scratch.\n This chat message web application was also built to be able to use inside internal wifi network without internet connection.",
-    technologies: ['VueJS', 'Pinia', 'Pocketbase', 'TailwindCSS'],
+    technologies: [
+      Technologies.vuejs,
+      Technologies.pinia,
+      Technologies.pocketbase,
+      Technologies.tailwindcss
+    ],
     images: [
       'https://firebasestorage.googleapis.com/v0/b/personal-portfolio-7cbca.appspot.com/o/Chat%20message%2Fphoto1686284318.jpeg?alt=media&token=6e93a580-1d6f-4b0a-8f22-814269b2ac21&_gl=1*13fyr95*_ga*MTE2MTM2NTU0Mi4xNjc5OTg5ODI5*_ga_CW55HF8NVT*MTY4NjI4NDM1NC40LjEuMTY4NjI4NDQzOS4wLjAuMA..',
       'https://firebasestorage.googleapis.com/v0/b/personal-portfolio-7cbca.appspot.com/o/Chat%20message%2Fphoto1686284318%20(1).jpeg?alt=media&token=3e765b93-d491-46ab-a1f7-63d2e29994e8&_gl=1*e9gwm1*_ga*MTE2MTM2NTU0Mi4xNjc5OTg5ODI5*_ga_CW55HF8NVT*MTY4NjI4NDM1NC40LjEuMTY4NjI4NDY3Ny4wLjAuMA..',
@@ -30,9 +40,17 @@ export const projects: projectsType[] = [
     poster:
       'https://firebasestorage.googleapis.com/v0/b/personal-portfolio-7cbca.appspot.com/o/Smart%20Laundry%2FScreenshot%202023-06-09%20113633.png?alt=media&token=5be39f7c-6675-4bc9-9ee4-6f6de112ed69&_gl=1*12oegvh*_ga*MTE2MTM2NTU0Mi4xNjc5OTg5ODI5*_ga_CW55HF8NVT*MTY4NjI4NDM1NC40LjEuMTY4NjI4NTY5MS4wLjAuMA..',
     title: 'Smart Laundry Dashboard',
-    description:
-      "Participated in an internal internship project in building dashboard system that is being used by more than 100 students.\n I've built this dashboard using NextJS, TailwindCSS, Typescript.\nThis dashboard is build for the student usage to regarding Smart Laundry System.\nThe dashboard also comes with Admin dashboard. Admin Dashboard allows the admin of the system to manage the system including the machine status, user management, and more.",
-    technologies: ['NextJS', 'TailwindCSS', 'Typescript'],
+    description: `
+    Participated in an internal internship project in building dashboard system that is being used by more than 100 students.
+    
+    This dashboard is build for the student usage to regarding Smart Laundry System and also comes with the Admin dashboard. 
+    Admin Dashboard allows the admin of the system to manage the system including the machine status, user management, and more.`,
+    // technologies: ['NextJS', 'TailwindCSS', 'Typescript'],
+    technologies: [
+      Technologies.nextjs,
+      Technologies.tailwindcss,
+      Technologies.typescript
+    ],
     images: [
       'https://firebasestorage.googleapis.com/v0/b/personal-portfolio-7cbca.appspot.com/o/Smart%20Laundry%2FScreenshot%202023-06-09%20113633.png?alt=media&token=5be39f7c-6675-4bc9-9ee4-6f6de112ed69&_gl=1*u5scdm*_ga*MTE2MTM2NTU0Mi4xNjc5OTg5ODI5*_ga_CW55HF8NVT*MTY4NjI4NDM1NC40LjEuMTY4NjI4NTY5MS4wLjAuMA..',
       'https://firebasestorage.googleapis.com/v0/b/personal-portfolio-7cbca.appspot.com/o/Smart%20Laundry%2FScreenshot%202023-06-09%20113656%20(1).png?alt=media&token=72097e7e-799c-43ce-9b6c-9ff67e6ac049&_gl=1*dfxmk5*_ga*MTE2MTM2NTU0Mi4xNjc5OTg5ODI5*_ga_CW55HF8NVT*MTY4NjI4NDM1NC40LjEuMTY4NjI4NjEyMC4wLjAuMA..',
@@ -49,9 +67,18 @@ export const projects: projectsType[] = [
     poster:
       'https://firebasestorage.googleapis.com/v0/b/personal-portfolio-7cbca.appspot.com/o/jart%20jaeng.png?alt=media&token=bc132790-4d27-468f-ad75-74d423c34ddb',
     title: 'ចាត់ចែង - Jart Jaeng',
-    description:
-      "I've joined Flutter training bootcamp and after a month and a half this is the result. I've participated in a small group and built this flutter application.\n\nIn this training program, We also came first as the best application that stands out the most by vote.",
-    technologies: ['Flutter', 'Dart', 'Firebase', 'Figma'],
+    description: `
+      I've joined Flutter training bootcamp and after a month and a half this is the result. I've participated in a small group and built this flutter application.
+      In this training program, We also came first as the best application that stands out the most by vote.
+      
+      The idea of this application is aiming to helps the online sellers on the social media platform \nto have a better experience in selling their products by provide an application that can helps manage their products, orders, and customers.
+    `,
+    technologies: [
+      Technologies.flutter,
+      Technologies.dart,
+      Technologies.firebase,
+      Technologies.figma
+    ],
     images: [
       'https://firebasestorage.googleapis.com/v0/b/personal-portfolio-7cbca.appspot.com/o/jart%20jaeng%2Fphoto1686216922%20(1).jpeg?alt=media&token=33560b91-30fa-457e-b652-e8935501a1df&_gl=1*1xr01j9*_ga*MTE2MTM2NTU0Mi4xNjc5OTg5ODI5*_ga_CW55HF8NVT*MTY4NjIxMzUxNy4yLjEuMTY4NjIxNzEyNy4wLjAuMA..',
       'https://firebasestorage.googleapis.com/v0/b/personal-portfolio-7cbca.appspot.com/o/jart%20jaeng%2Fphoto1686216922%20(2).jpeg?alt=media&token=a0ee54e6-3858-4394-bee9-00dbaa5c45b0&_gl=1*lilmno*_ga*MTE2MTM2NTU0Mi4xNjc5OTg5ODI5*_ga_CW55HF8NVT*MTY4NjIxMzUxNy4yLjEuMTY4NjIxNzE1OC4wLjAuMA..',
@@ -66,9 +93,24 @@ export const projects: projectsType[] = [
     poster:
       'https://firebasestorage.googleapis.com/v0/b/personal-portfolio-7cbca.appspot.com/o/odoo%20image.png?alt=media&token=19aaeadf-7400-4121-b441-7959b0625c2d',
     title: 'Odoo application',
-    description:
-      'Participate in building an odoo enterprise application for internal use that is more that 500 users.',
-    technologies: ['Odoo', 'Python', 'XML', 'Postgres']
+    description: `
+      Working in a team and building more than 10 odoo application
+      custom modules for Internal company usage and being used by
+      more than 200 staff members
+    `,
+    technologies: [
+      Technologies.odoo,
+      Technologies.python,
+      Technologies.xml,
+      Technologies.postgresql
+    ],
+    images: [
+      'https://firebasestorage.googleapis.com/v0/b/personal-portfolio-7cbca.appspot.com/o/odoo%2Fodoo-1.jpeg?alt=media&token=20bad9fa-cc36-4b79-9693-207bf17a4936',
+      'https://firebasestorage.googleapis.com/v0/b/personal-portfolio-7cbca.appspot.com/o/odoo%2Fodoo-2.jpeg?alt=media&token=ae8168ad-a828-4cde-b8fb-5df31eb2e39b',
+      'https://firebasestorage.googleapis.com/v0/b/personal-portfolio-7cbca.appspot.com/o/odoo%2Fodoo-3.jpeg?alt=media&token=3222956a-e2d4-413e-8b6f-a46b56322468',
+      'https://firebasestorage.googleapis.com/v0/b/personal-portfolio-7cbca.appspot.com/o/odoo%2Fodoo-4.jpeg?alt=media&token=5fd54041-3d70-4107-a842-2b24713a1785',
+      'https://firebasestorage.googleapis.com/v0/b/personal-portfolio-7cbca.appspot.com/o/odoo%2Fodoo-5.jpeg?alt=media&token=2941ecee-79c6-4319-83b2-8d2b2848e8a2'
+    ]
   },
   {
     id: 'penhwonder',
@@ -77,7 +119,7 @@ export const projects: projectsType[] = [
     title: 'Penhwonder',
     description:
       'A web application + Automation built by Cambodian college students to help your life easier in finding and promoting wonderful events in Phnom Penh! The events are automatically updated from a list of registered Facebook pages once everyday at 12:30am by our automated events-creating system.',
-    technologies: ['VueJS', 'Vuex', 'Vuetify'],
+    technologies: [Technologies.vuejs, Technologies.vuex, Technologies.vuetify],
 
     images: [
       'https://firebasestorage.googleapis.com/v0/b/personal-portfolio-7cbca.appspot.com/o/penhwonder%2FScreenshot%202023-06-08%20165951.png?alt=media&token=d499f768-3ba4-4565-a4f5-b16d065a1cce&_gl=1*xvhw5p*_ga*MTE2MTM2NTU0Mi4xNjc5OTg5ODI5*_ga_CW55HF8NVT*MTY4NjIxMzUxNy4yLjEuMTY4NjIxODUyMy4wLjAuMA..',

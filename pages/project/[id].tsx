@@ -50,7 +50,9 @@ export default function Project({ project }: { project: projectsType }) {
                 {project.title}
               </h1>
 
-              <p className='whitespace-pre-line'>{project.description}</p>
+              <p className='whitespace-pre-line '>
+                {project.description.trim()}
+              </p>
             </div>
           </div>
 
@@ -67,9 +69,17 @@ export default function Project({ project }: { project: projectsType }) {
                     : 'bg-accent3';
 
                 return (
-                  <span className={`p-2 px-4 ${color} rounded-full text-white`}>
-                    {tech}
-                  </span>
+                  <div
+                    key={index}
+                    className={`p-2 px-4 ${color} rounded-full text-white flex space-x-2
+                 
+                    `}
+                  >
+                    {tech.logo && (
+                      <img src={tech.logo} alt='' className='h-6' />
+                    )}
+                    {tech.name && <span>{tech.name}</span>}
+                  </div>
                 );
               })}
             </div>
@@ -113,7 +123,8 @@ export default function Project({ project }: { project: projectsType }) {
                           height: '100%',
                           width: '100%'
                         }}
-                        quality={75}
+                        // quality={75}
+                        priority
                         sizes='400px'
                       />
                     </div>
@@ -126,7 +137,7 @@ export default function Project({ project }: { project: projectsType }) {
                 {project.images.map((image, index) => (
                   <div
                     key={index}
-                    className='max-w-[500px] max-h-[500px] relative cursor-pointer'
+                    className='max-w-[400px] max-h-[450px] relative cursor-pointer'
                     onClick={() => {
                       setInitialSlide(index);
                       toggle();
@@ -144,7 +155,8 @@ export default function Project({ project }: { project: projectsType }) {
                         hover:ring-1 ring-accent3 
                         hover:shadow-xl
                       '
-                      quality={75}
+                      // quality={75}
+                      priority
                     />
                   </div>
                 ))}

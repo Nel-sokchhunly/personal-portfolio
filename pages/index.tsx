@@ -1,7 +1,16 @@
+import { useEffect } from 'react';
 import MainButton from '../components/homepage/main_button';
 import Navbar from '../components/homepage/navbar';
+import { useRouter } from 'next/router';
 
 function Homepage() {
+  const router = useRouter();
+
+  useEffect(() => {
+    router.prefetch('/project');
+    router.prefetch('/about');
+  }, []);
+
   return (
     <div className='min-h-full w-screen overflow-hidden bg-primary flex flex-col relative'>
       <div
