@@ -17,7 +17,7 @@ function MainButton({ title, color, page }: MainButtonProps) {
         </div>
         <button
           typeof='button'
-          className={`w-full flex justify-center border-t-2 border-black py-2 md:py-4 cursor-pointer ${color} bg-opacity-50 hover:bg-primary focus:bg-primary  `}
+          className={`w-full flex justify-center border-t-2 border-black py-2 md:py-4 cursor-pointer ${color} bg-opacity-50 `}
         >
           <img src='assets/enter.png' alt='enter button' className='h-6' />
         </button>
