@@ -14,7 +14,7 @@ export default function MainLayout({ backUrl, children }: BackNavbarProps) {
         <div className='h-16 w-full'></div>
       </div>
       <Link href={backUrl ? backUrl : '/'}>
-        <div className='w-full bg-primary cursor-pointer h-16 flex justify-center items-center border-t-2 border-secondary px-4 fixed bottom-0 right-0'>
+        <div className='z-[999] w-full bg-primary cursor-pointer h-16 flex justify-center items-center border-t-2 border-secondary px-4 fixed bottom-0 right-0'>
           <div className='font-semibold text-lg text-secondary'>Back</div>
         </div>
       </Link>

@@ -7,19 +7,37 @@ export default function About() {
   return (
     <MainLayout>
       <div className='flex flex-col sm:flex-row sm:space-x-4 space-y-4 sm:space-y-0 px-5 md:px-10 py-10 '>
-        <div className='flex justify-center sm:justify-start'>
-          <div className='h-72 w-52 xl:w-56 border-2 border-secondary flex flex-col hover:shadow-sm hover:shadow-secondary transition duration-200'>
-            <div className='relative flex-1 w-full flex items-center justify-center bg-opacity-30 font-medium whitespace-pre-wrap'>
-              <Image
-                src='/assets/nel-sokchhunly.jpeg'
-                alt='profile'
-                layout='fill'
-                objectFit='cover'
-              />
+        <div className='flex justify-center sm:justify-start mr-2 mb-2'>
+          <div className='relative group h-72 w-52 xl:w-56 '>
+            <div
+              className='
+                -translate-y-1 translate-x-1
+                z-[1] absolute left-0 top-0
+                w-full h-full border-2 border-secondary flex flex-col 
+              transition duration-300
+                bg-white rounded-sm 
+              '
+            >
+              <div className='relative flex-1 w-full flex items-center justify-center bg-opacity-30 font-medium whitespace-pre-wrap'>
+                <Image
+                  src='/assets/nel-sokchhunly.jpeg'
+                  alt='profile'
+                  fill
+                  className='object-cover'
+                />
+              </div>
+              <div className='text-center border-t-2 border-stone-700 py-4 bg-opacity-50'>
+                Nel Sokchhunly
+              </div>
             </div>
-            <div className='text-center border-t-2 border-black py-4 bg-opacity-50 hover:bg-primary focus:bg-primary'>
-              Nel Sokchhunly
-            </div>
+
+            <div
+              className='
+              h-full w-full z-0 bg-black bg-opacity-80 absolute left-0 top-0
+              translate-y-1 -translate-x-1
+              transition duration-300 rounded-sm
+            '
+            ></div>
           </div>
         </div>
         <div>
