@@ -4,6 +4,8 @@ import { AppProps } from 'next/app';
 import '../styles/globals.css';
 import Head from 'next/head';
 
+import NextNProgress from 'nextjs-progressbar';
+
 function MyApp({ Component, pageProps }: AppProps) {
   return (
     <>
@@ -19,6 +21,16 @@ function MyApp({ Component, pageProps }: AppProps) {
         <link rel='icon' href='/assets/favicon.png' />
       </Head>
 
+      <NextNProgress
+        color={(() => {
+          const colors = ['#0D393A', '#50B4A2', '#DD4D1D'];
+
+          return `linear-gradient(90deg, ${colors[0]} 0%, ${colors[1]} 50%, ${colors[2]} 100%)`;
+        })()}
+        options={{
+          showSpinner: false
+        }}
+      />
       <Component {...pageProps} />
     </>
   );

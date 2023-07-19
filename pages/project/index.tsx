@@ -75,11 +75,16 @@ const ProjectBtn = ({
         <button
           typeof='button'
           className={`
-            w-full flex justify-center border-t-2 border-black py-4 cursor-pointer ${color} bg-opacity-50
+            w-full flex justify-center items-center gap-2 border-t-2 border-black py-4 cursor-pointer ${color} bg-opacity-50
             font-bold 
           `}
         >
           {project.title}
+          <img
+            src='assets/open-link.png'
+            alt='enter button'
+            className='h-4 w-4 object-contain'
+          />
         </button>
       </div>
     </Link>
