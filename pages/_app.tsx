@@ -6,6 +6,13 @@ import Head from 'next/head';
 
 import NextNProgress from 'nextjs-progressbar';
 
+import { Montserrat } from 'next/font/google';
+
+const fonts = Montserrat({
+  display: 'swap',
+  subsets: ['latin']
+});
+
 function MyApp({ Component, pageProps }: AppProps) {
   return (
     <>
@@ -31,7 +38,9 @@ function MyApp({ Component, pageProps }: AppProps) {
           showSpinner: false
         }}
       />
-      <Component {...pageProps} />
+      <span className={fonts.className}>
+        <Component {...pageProps} />
+      </span>
     </>
   );
 }
