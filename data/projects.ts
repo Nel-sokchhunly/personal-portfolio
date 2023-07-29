@@ -4,6 +4,7 @@ export interface projectsType {
   id: string;
   poster: string;
   images?: string[];
+  link?: string;
   title: string;
   description: string;
   technologies: {
@@ -14,12 +15,44 @@ export interface projectsType {
 
 export const projects: projectsType[] = [
   {
+    id: 'kjeybook',
+    poster: '/kjeybook-logo.png',
+    link: 'https://kjeybook.vercel.app/',
+    title: 'Kjeybook',
+    description: `
+      Kjeybook is a web application that I've built using NextJS, TailwindCSS and Typescript.
+      This website is an application where the user can view a list of books of a specific library and make a request to borrow the book.
+      It also has an admin page where the admin can manage the books and the users request.
+      
+      This web application is the result of my group for the bootcamp project. I am responsible for the leading the frontend team.
+      I am very happy with the result as our application was voted to be Best Project by the bootcamp committee.
+    `,
+    technologies: [
+      Technologies.nextjs,
+      Technologies.tailwindcss,
+      Technologies.typescript
+    ],
+    images: [
+      'https://firebasestorage.googleapis.com/v0/b/personal-portfolio-7cbca.appspot.com/o/kjeybook%2FScreenshot%202023-07-29%20215454.png?alt=media&token=b7dfc6e2-a0f4-457e-a8e7-6249f2a0c5f5',
+      'https://firebasestorage.googleapis.com/v0/b/personal-portfolio-7cbca.appspot.com/o/kjeybook%2FScreenshot%202023-07-29%20215507.png?alt=media&token=aaf031aa-2671-46d0-bb8d-790b80df4970',
+      'https://firebasestorage.googleapis.com/v0/b/personal-portfolio-7cbca.appspot.com/o/kjeybook%2FScreenshot%202023-07-29%20215511.png?alt=media&token=84bf24f8-29cc-4af9-b939-544f7eef7fdf',
+      'https://firebasestorage.googleapis.com/v0/b/personal-portfolio-7cbca.appspot.com/o/kjeybook%2FScreenshot%202023-07-29%20215516.png?alt=media&token=5a0c3e95-b8f2-43f8-b0d3-7ad89c913dfa',
+      'https://firebasestorage.googleapis.com/v0/b/personal-portfolio-7cbca.appspot.com/o/kjeybook%2FScreenshot%202023-07-29%20220205.png?alt=media&token=f55e3c62-230d-4039-becc-8c41ced64644',
+      'https://firebasestorage.googleapis.com/v0/b/personal-portfolio-7cbca.appspot.com/o/kjeybook%2FScreenshot%202023-07-29%20220208.png?alt=media&token=289ca298-60b5-48c2-9e69-e68415a0ae74',
+      'https://firebasestorage.googleapis.com/v0/b/personal-portfolio-7cbca.appspot.com/o/kjeybook%2FScreenshot%202023-07-29%20220218.png?alt=media&token=918c3c18-b23e-4ab9-96b9-27caf36f7cf2',
+      'https://firebasestorage.googleapis.com/v0/b/personal-portfolio-7cbca.appspot.com/o/kjeybook%2FScreenshot%202023-07-29%20220223.png?alt=media&token=476f3b2d-e75d-44c6-b760-4f8044328f9d'
+    ]
+  },
+  {
     id: 'chat-web-app',
     poster:
       'https://firebasestorage.googleapis.com/v0/b/personal-portfolio-7cbca.appspot.com/o/Chat%20message%2FScreenshot%202023-06-09%20112915.png?alt=media&token=fa4a0576-e0ff-432e-975a-094b2cc3fef3&_gl=1*dwaz5*_ga*MTE2MTM2NTU0Mi4xNjc5OTg5ODI5*_ga_CW55HF8NVT*MTY4NjI4NDM1NC40LjEuMTY4NjI4NDk4MC4wLjAuMA..',
     title: 'Chat message web',
-    description:
-      "This is a chat massage web application that I've built using VueJS, Pinia and Pocketbase as a backend service.\n I build this application to learn more about how the chat message web application works and how to build it from scratch.\n This chat message web application was also built to be able to use inside internal wifi network without internet connection.",
+    description: `
+    This is a chat massage web application that I've built using VueJS, Pinia and Pocketbase as a backend service.<br/>
+    I build this application to learn more about how the chat message web application works and how to build it from scratch.\n
+    This chat message web application was also built to be able to use inside internal wifi network without internet connection.
+    `,
     technologies: [
       Technologies.vuejs,
       Technologies.pinia,
@@ -69,8 +102,7 @@ export const projects: projectsType[] = [
     title: 'ចាត់ចែង - Jart Jaeng',
     description: `
       I've joined Flutter training bootcamp and after a month and a half this is the result. I've participated in a small group and built this flutter application.
-      In this training program, We also came first as the best application that stands out the most by vote.
-      
+      In this training program, We also came first as the best application that stands out the most by vote.\n
       The idea of this application is aiming to helps the online sellers on the social media platform \nto have a better experience in selling their products by provide an application that can helps manage their products, orders, and customers.
     `,
     technologies: [

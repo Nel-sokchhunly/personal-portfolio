@@ -3,13 +3,12 @@ import Image from 'next/image';
 import { projectsType } from '../../data/projects';
 import MainLayout from '../../layouts/MainLayout';
 
-import { motion } from 'framer-motion';
-
 import 'keen-slider/keen-slider.min.css';
 import { useKeenSlider } from 'keen-slider/react';
 
 import { projects } from '../../data/projects';
 import useViewImage from '../../components/modal/ViewImage';
+import { CursorArrowRippleIcon } from '@heroicons/react/24/outline';
 
 export default function Project({ project }: { project: projectsType }) {
   const [sliderRef, instanceRef] = useKeenSlider({
@@ -29,26 +28,46 @@ export default function Project({ project }: { project: projectsType }) {
       <ViewImageModal />
 
       <MainLayout backUrl='/project'>
-        <div className='w-full min-h-full p-4 mb-32 md:mb-16'>
-          <div className='grid grid-cols-1 md:grid-cols-3'>
-            <div className=''>
-              <div
-                className={`mx-auto max-h-[400px] max-w-[400px] relative aspect-video my-4`}
-              >
-                <Image
-                  src={project.poster}
-                  alt={project.title}
-                  className='object-scale-down'
-                  fill
-                  priority
-                />
-              </div>
+        <div className='w-full min-h-full p-4 '>
+          <div className='flex flex-col lg:flex-row flex-wrap'>
+            <div
+              className={`
+                w-full h-full max-h-[400px] max-w-[400px] relative aspect-video
+                flex-shrink-0
+              `}
+            >
+              <Image
+                src={project.poster}
+                alt={project.title}
+                className='object-scale-down object-left'
+                fill
+                priority
+              />
             </div>
 
-            <div className='col-span-2 md:px-4'>
-              <h1 className='font-bold text-xl text-black text-opacity-90 my-4'>
-                {project.title}
-              </h1>
+            <div className='flex-1 lg:px-4'>
+              <div className='flex flex-wrap items-center gap-4'>
+                <h1 className='font-bold text-xl text-black text-opacity-90 my-4'>
+                  {project.title}
+                </h1>
+                {project.link && (
+                  <a
+                    href={project.link}
+                    target='_blank'
+                    className='
+                      px-4 p-1 rounded-sm h-fit
+                      border-2 border-secondary 
+                      flex items-center gap-2
+                    '
+                  >
+                    <CursorArrowRippleIcon
+                      className='h-4 w-4 stroke-accent3'
+                      aria-hidden='true'
+                    />
+                    <span>Live Demo</span>
+                  </a>
+                )}
+              </div>
 
               <p className='whitespace-pre-line '>
                 {project.description.trim()}
@@ -56,8 +75,10 @@ export default function Project({ project }: { project: projectsType }) {
             </div>
           </div>
 
+          {/* project links */}
+
           {/* technologies */}
-          <div className='mt-8 flex flex-wrap gap-4 items-center'>
+          <div className='mt-4 flex flex-wrap gap-4 items-center'>
             <h3 className='font-bold text-lg'>Technologies : </h3>
             <div className='flex flex-wrap gap-2'>
               {project.technologies.map((tech, index) => {
@@ -71,12 +92,13 @@ export default function Project({ project }: { project: projectsType }) {
                 return (
                   <div
                     key={index}
-                    className={`p-2 px-4 ${color} rounded-full text-white flex space-x-2
-                 
+                    className={`
+                      p-1 px-4 flex space-x-2
+                      items-center justify-start
                     `}
                   >
                     {tech.logo && (
-                      <img src={tech.logo} alt='' className='h-6' />
+                      <img src={tech.logo} alt='' className='h-5' />
                     )}
                     {tech.name && <span>{tech.name}</span>}
                   </div>
@@ -89,7 +111,7 @@ export default function Project({ project }: { project: projectsType }) {
           {project.images && project.images.length > 0 && (
             <div>
               <div>
-                <h3 className='mt-8 font-bold text-lg'>
+                <h3 className='mt-4 font-bold text-lg'>
                   Project Screenshots :{' '}
                 </h3>
                 <span className='text-black text-opacity-50 text-xs font-medium'>

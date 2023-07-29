@@ -67,7 +67,7 @@ const ProjectBtn = ({
                 h-52 w-72 md:w-80 xl:w-96 
                 flex items-center justify-center flex-1 
                 bg-opacity-30 font-medium aspect-video 
-
+                ${color}
               `}
           >
             <Image
@@ -83,7 +83,7 @@ const ProjectBtn = ({
           <button
             typeof='button'
             className={`
-            w-full flex justify-center items-center gap-2 border-t-2 border-stone-700 py-4 cursor-pointer ${color}
+            w-full flex justify-center items-baseline gap-2 border-t-2 border-stone-700 py-4 cursor-pointer ${color}
             font-bold bg-opacity-50
           `}
           >
@@ -91,7 +91,7 @@ const ProjectBtn = ({
             <img
               src='assets/open-link.png'
               alt='enter button'
-              className='h-4 w-4 object-contain'
+              className='h-4 w-4 object-contain translate-y-[2px]'
             />
           </button>
         </div>
