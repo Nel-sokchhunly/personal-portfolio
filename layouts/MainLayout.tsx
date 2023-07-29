@@ -7,17 +7,16 @@ type BackNavbarProps = {
 
 export default function MainLayout({ backUrl, children }: BackNavbarProps) {
   return (
-    <div className='overflow-hidden h-full flex flex-col flex-grow relative bg-primary'>
-      <div className='min-h-full w-screen flex-1 overflow-y-auto'>
-        {children}
-        {/* compensate for bottom bar height */}
-        <div className='h-16 w-full'></div>
-      </div>
-      <Link href={backUrl ? backUrl : '/'}>
-        <div className='z-[999] w-full bg-primary cursor-pointer h-16 flex justify-center items-center border-t-2 border-secondary px-4 fixed bottom-0 right-0'>
+    <div className='w-screen h-full p-2 md:p-4'>
+      <div className='overflow-hidden h-full flex flex-col flex-grow relative bg-primary border-2 border-secondary'>
+        <div className='h-full w-full flex-1 overflow-y-auto'>{children}</div>
+        <Link
+          href={backUrl ? backUrl : '/'}
+          className='z-[9999] w-full bg-primary cursor-pointer h-16 flex justify-center items-center border-t-2 border-secondary px-4 '
+        >
           <div className='font-semibold text-lg text-secondary'>Back</div>
-        </div>
-      </Link>
+        </Link>
+      </div>
     </div>
   );
 }

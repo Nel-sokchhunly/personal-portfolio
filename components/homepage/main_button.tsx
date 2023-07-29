@@ -6,6 +6,8 @@ type MainButtonProps = {
   page: String;
 };
 
+import { ArrowsPointingOutIcon } from '@heroicons/react/24/outline';
+
 function MainButton({ title, color, page }: MainButtonProps) {
   return (
     <Link href={'/' + page}>
@@ -27,16 +29,22 @@ function MainButton({ title, color, page }: MainButtonProps) {
           '
         >
           <div
-            className={`flex-1 w-full flex items-center justify-center ${color} bg-opacity-30 font-medium whitespace-pre-wrap`}
+            className={`
+            flex-1 w-full flex items-center justify-center ${color} bg-opacity-30 font-medium whitespace-pre-wrap
+            `}
           >
-            {title}
+            <span className='font-semibold'>{title}</span>
           </div>
-          <button
+          {/* <button
             typeof='button'
-            className={`w-full flex justify-center border-t-2 border-black py-2 md:py-4 cursor-pointer ${color} bg-opacity-50 `}
+            className={`
+              w-full flex justify-center items-center border-t-2 border-black py-2 md:py-4 cursor-pointer ${color} bg-opacity-50 
+              font-medium 
+            `}
           >
-            <img src='assets/enter.png' alt='enter button' className='h-6' />
-          </button>
+            <ArrowsPointingOutIcon className='h-5 w-5 mr-2' />
+            <span>Open</span>
+          </button> */}
         </div>
 
         <div
