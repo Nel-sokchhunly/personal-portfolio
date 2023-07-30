@@ -14,7 +14,7 @@ export default function About() {
                 -translate-y-1 translate-x-1
                 z-[1] absolute left-0 top-0
                 w-full h-full border-2 border-secondary flex flex-col 
-              transition duration-300
+                transition duration-300
                 bg-white rounded-sm 
               '
             >

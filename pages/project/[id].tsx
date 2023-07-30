@@ -32,17 +32,35 @@ export default function Project({ project }: { project: projectsType }) {
           <div className='flex flex-col lg:flex-row flex-wrap'>
             <div
               className={`
-                w-full h-full max-h-[400px] max-w-[400px] relative aspect-video
+                w-full h-full relative
+                max-h-[400px] max-w-[400px]
                 flex-shrink-0
+                overflow-visible
+                mb-4
               `}
             >
-              <Image
-                src={project.poster}
-                alt={project.title}
-                className='object-scale-down object-left'
-                fill
-                priority
-              />
+              <div
+                className='
+                  h-full w-full -z-0 bg-black bg-opacity-80 absolute left-0 top-0
+                  translate-y-1 -translate-x-1
+                  transition duration-300 rounded-sm
+                '
+              ></div>
+
+              <div
+                className='
+                  border-2 border-secondary bg-secondary box-border
+                  -translate-y-1 translate-x-1
+                  rounded-sm overflow-clip z-10 
+                  shadow
+                '
+              >
+                <img
+                  src={project.poster}
+                  alt={project.title}
+                  className='object-cover w-full h-full aspect-video'
+                />
+              </div>
             </div>
 
             <div className='flex-1 lg:px-4'>
@@ -82,13 +100,6 @@ export default function Project({ project }: { project: projectsType }) {
             <h3 className='font-bold text-lg'>Technologies : </h3>
             <div className='flex flex-wrap gap-2'>
               {project.technologies.map((tech, index) => {
-                const color =
-                  index % 3 === 0
-                    ? 'bg-accent1'
-                    : index % 3 === 1
-                    ? 'bg-accent2'
-                    : 'bg-accent3';
-
                 return (
                   <div
                     key={index}
@@ -195,10 +206,6 @@ export async function getServerSideProps({ params }: { params: any }) {
   const project = projects.find(
     (project: projectsType) => project.id === params.id
   );
-
-  const index = projects.findIndex((object: projectsType) => {
-    return object.id === project.id;
-  });
 
   return {
     props: {

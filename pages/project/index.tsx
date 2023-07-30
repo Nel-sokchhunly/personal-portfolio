@@ -37,12 +37,7 @@ const ProjectBtn = ({
   project: projectsType;
   index: number;
 }) => {
-  const color =
-    index % 3 === 0
-      ? 'bg-accent1'
-      : index % 3 === 1
-      ? 'bg-accent2'
-      : 'bg-accent3';
+  const color = index % 2 === 0 ? 'bg-accent1' : 'bg-accent3';
 
   return (
     <Link key={index} href={'/project/' + project.id}>
