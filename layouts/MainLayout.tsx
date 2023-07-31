@@ -12,9 +12,25 @@ export default function MainLayout({ backUrl, children }: BackNavbarProps) {
         <div className='h-full w-full flex-1 overflow-y-auto'>{children}</div>
         <Link
           href={backUrl ? backUrl : '/'}
-          className='z-[9999] w-full bg-primary cursor-pointer h-16 flex justify-center items-center border-t-2 border-secondary px-4 '
+          className='
+            z-[9999] w-full cursor-pointer
+            h-16 flex justify-center items-center
+            bg-secondary
+            transition-all duration-300
+            group
+            overflow-visible
+          '
         >
-          <div className='font-semibold text-lg text-secondary'>Back</div>
+          <div
+            className='
+              w-full h-full font-semibold text-lg text-secondary bg-primary border-t-2 border-secondary
+              flex justify-center items-center
+              transition-all duration-300
+              group-hover:-translate-y-1
+            '
+          >
+            Back
+          </div>
         </Link>
       </div>
     </div>
