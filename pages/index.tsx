@@ -2,6 +2,7 @@ import { useEffect } from 'react';
 import MainButton from '../components/homepage/main_button';
 import Navbar from '../components/homepage/navbar';
 import { useRouter } from 'next/router';
+import Breadcrumbs from '../components/Breadcrumbs';
 
 function Homepage() {
   const router = useRouter();

@@ -12,6 +12,7 @@
     "@prismicio/client": "^7.1.0",
     "@prismicio/next": "^1.2.1",
     "@prismicio/react": "^2.6.2",
+    "clsx": "^2.0.0",
     "eslint-config-next": "^13.4.4",
     "framer-motion": "^10.12.16",
     "keen-slider": "^6.8.5",
@@ -20,7 +21,8 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "recoil": "^0.7.7",
-    "tabletop": "^1.6.3"
+    "tabletop": "^1.6.3",
+    "tailwind-merge": "^1.14.0"
   },
   "devDependencies": {
     "@slicemachine/adapter-next": "^0.3.0",
