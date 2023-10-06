@@ -4,14 +4,10 @@
     "dev": "next",
     "build": "next build",
     "start": "next start",
-    "type-check": "tsc",
-    "slicemachine": "start-slicemachine"
+    "type-check": "tsc"
   },
   "dependencies": {
     "@heroicons/react": "^2.0.18",
-    "@prismicio/client": "^7.1.0",
-    "@prismicio/next": "^1.2.1",
-    "@prismicio/react": "^2.6.2",
     "clsx": "^2.0.0",
     "eslint-config-next": "^13.4.4",
     "framer-motion": "^10.12.16",
@@ -25,13 +21,11 @@
     "tailwind-merge": "^1.14.0"
   },
   "devDependencies": {
-    "@slicemachine/adapter-next": "^0.3.0",
     "@types/node": "^18.8.2",
     "@types/react": "^18.0.21",
     "@types/react-dom": "^18.0.6",
     "autoprefixer": "^10.4.14",
     "postcss": "^8.4.24",
-    "slice-machine-ui": "^1.2.0",
     "tailwindcss": "^3.3.2",
     "typescript": "4.8.4"
   }
