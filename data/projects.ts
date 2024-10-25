@@ -15,6 +15,20 @@ export interface projectsType {
 
 export const projects: projectsType[] = [
   {
+    id: "nextjs-image-quickview",
+    poster: "/nextjs-image-quickview-logo.jpg",
+    title: "Nextjs Image Quickview",
+    link: "https://marketplace.visualstudio.com/items?itemName=nelsokchhunly.next-image-quickview",
+    description: `
+Developed a VSCODE Extension that allows developers to quickly preview the src image of
+the image tag in TSX files with the options to reveal the files in the explore helping the
+developer by eliminating the time to go through file explorer to find the file`,
+    technologies: [Technologies.typescript],
+    images: [
+      "https://firebasestorage.googleapis.com/v0/b/personal-portfolio-7cbca.appspot.com/o/vscode-ext%2Fnew-demo.gif?alt=media&token=27888cf5-680f-4f34-beb8-266f18726bbb",
+    ],
+  },
+  {
     id: "kjeybook",
     poster: "/kjeybook-logo.png",
     title: "Kjeybook",
